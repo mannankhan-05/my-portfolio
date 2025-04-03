@@ -5,7 +5,13 @@
       <div class="about-content">
         <div class="about-image">
           <!-- Replace with your image -->
-          <div class="placeholder-image"></div>
+          <div class="placeholder-image">
+            <img
+              :src="require('../assets/about-img.jpg')"
+              alt="Hero Image"
+              class="about-img"
+            />
+          </div>
         </div>
         <div class="about-text">
           <p>
@@ -15,7 +21,7 @@
             seamless user experiences that solve real-world problems.
           </p>
           <p>
-            My journey in software development began 5 years ago, and since
+            My journey in software development began 2 years ago, and since
             then, I've worked on a diverse range of projects from e-commerce
             platforms to data-intensive applications. I'm constantly learning
             and adapting to new technologies to stay at the forefront of this
@@ -24,15 +30,15 @@
           <div class="about-details">
             <div class="detail-item">
               <span class="detail-label">Name:</span>
-              <span class="detail-value">John Doe</span>
+              <span class="detail-value">Abdul Mannan</span>
             </div>
             <div class="detail-item">
               <span class="detail-label">Email:</span>
-              <span class="detail-value">john@example.com</span>
+              <span class="detail-value">abdulmannan.khan005@gmail.com</span>
             </div>
             <div class="detail-item">
               <span class="detail-label">Location:</span>
-              <span class="detail-value">San Francisco, CA</span>
+              <span class="detail-value">Karachi, Pakistan</span>
             </div>
             <div class="detail-item">
               <span class="detail-label">Availability:</span>
@@ -111,6 +117,12 @@ export default {
   border: 1px solid var(--border-color);
 }
 
+.about-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .about-text {
   flex: 1;
 }
@@ -165,6 +177,10 @@ export default {
 .social-link:hover {
   background-color: var(--accent-color);
   color: white;
+}
+
+.btn {
+  text-decoration: none;
 }
 
 @media (max-width: 992px) {

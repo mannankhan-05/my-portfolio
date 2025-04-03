@@ -4,11 +4,12 @@
       <div class="hero-content">
         <h1 class="hero-title">
           <span class="greeting">Hello, I'm</span>
-          <span class="name">John Doe</span>
+          <span class="name">Abdul Mannan</span>
           <span class="role">Full Stack Developer</span>
         </h1>
         <p class="hero-description">
-          I build exceptional digital experiences with modern technologies.
+          Crafting stunning, responsive, and user-centric web applications with
+          modern technologies to turn your ideas into reality!
         </p>
         <div class="hero-actions">
           <a href="#contact" class="btn btn-primary">Get In Touch</a>
@@ -18,7 +19,13 @@
       <div class="hero-image">
         <div class="image-container">
           <!-- Replace with your image -->
-          <div class="placeholder-image"></div>
+          <div class="placeholder-image">
+            <img
+              :src="require('../assets/hero-image.jpg')"
+              alt="Hero Image"
+              class="hero-img"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -97,6 +104,10 @@ export default {
   gap: 15px;
 }
 
+.btn {
+  text-decoration: none;
+}
+
 .hero-image {
   flex: 1;
   display: flex;
@@ -117,6 +128,12 @@ export default {
   background-color: #e0e0e0;
   border-radius: 8px;
   border: 1px solid var(--border-color);
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .scroll-indicator {

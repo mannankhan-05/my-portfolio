@@ -111,6 +111,7 @@ export default {
   color: var(--text-color);
   font-weight: 500;
   position: relative;
+  text-decoration: none;
 }
 
 .nav-link::after {
