@@ -7,7 +7,9 @@
         </div>
         <p class="footer-text">
           &copy; {{ new Date().getFullYear() }} Managed and developed by
-          <a href="https://github.com/mannanKhan-05">Abdul Mannan</a>
+          <a class="my-name" href="https://github.com/mannanKhan-05"
+            >Abdul Mannan</a
+          >
         </p>
         <div class="footer-links">
           <a
@@ -66,6 +68,11 @@ export default {
 
 .footer-text {
   color: var(--secondary-color);
+}
+
+.my-name {
+  color: var(--accent-color);
+  text-decoration: none;
 }
 
 .footer-links {

@@ -2,7 +2,8 @@
   <nav class="nav" :class="{ 'nav-scrolled': isScrolled }">
     <div class="container nav-container">
       <div class="logo">
-        <span class="logo-text">DEV</span>
+        <!-- <span class="logo-text">DEV</span> -->
+        <img class="logo-image" :src="require('../assets/logo.png')" alt="" />
       </div>
       <div class="nav-links" :class="{ 'nav-active': isMenuOpen }">
         <a
@@ -100,6 +101,13 @@ export default {
 
 .logo-text {
   color: var(--accent-color);
+}
+
+.logo-image {
+  width: 70px;
+  height: 70px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .nav-links {

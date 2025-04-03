@@ -60,6 +60,13 @@
             >
               <i class="fab fa-linkedin"></i>
             </a>
+            <a
+              href="https://www.facebook.com/abdulmannan.khan.14855"
+              class="social-link"
+              aria-label="Facebook"
+            >
+              <i class="fab fa-facebook"></i>
+            </a>
           </div>
           <a href="/resume.pdf" download class="btn btn-primary"
             >Download Resume</a

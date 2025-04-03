@@ -17,7 +17,7 @@
               </div>
               <div class="contact-text">
                 <h4>Location</h4>
-                <p>San Francisco, CA</p>
+                <p>Karachi, Pakistan</p>
               </div>
             </div>
             <div class="contact-item">
@@ -26,7 +26,7 @@
               </div>
               <div class="contact-text">
                 <h4>Email</h4>
-                <p>john@example.com</p>
+                <p>abdulmannan.khan005@gmail.com</p>
               </div>
             </div>
             <div class="contact-item">
@@ -35,19 +35,31 @@
               </div>
               <div class="contact-text">
                 <h4>Phone</h4>
-                <p>+1 (123) 456-7890</p>
+                <p>+92 323 2007068</p>
               </div>
             </div>
           </div>
           <div class="social-links">
-            <a href="#" class="social-link" aria-label="GitHub">
+            <a
+              href="https://github.com/mannankhan-05/"
+              class="social-link"
+              aria-label="GitHub"
+            >
               <i class="fab fa-github"></i>
             </a>
-            <a href="#" class="social-link" aria-label="LinkedIn">
+            <a
+              href="https://www.linkedin.com/in/amannankhan/"
+              class="social-link"
+              aria-label="LinkedIn"
+            >
               <i class="fab fa-linkedin"></i>
             </a>
-            <a href="#" class="social-link" aria-label="Twitter">
-              <i class="fab fa-twitter"></i>
+            <a
+              href="https://www.facebook.com/abdulmannan.khan.14855"
+              class="social-link"
+              aria-label="facebook"
+            >
+              <i class="fab fa-facebook"></i>
             </a>
           </div>
         </div>
@@ -91,6 +103,8 @@
 </template>
 
 <script>
+import emailjs from "emailjs-com";
+
 export default {
   name: "ContactSection",
   data() {
@@ -109,7 +123,19 @@ export default {
       this.isSubmitting = true;
 
       // Simulate form submission
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      await emailjs
+        .send(
+          process.env.VUE_APP_EMAILJS_SERVICE_ID,
+          process.env.VUE_APP_EMAILJS_TEMPLATE_ID,
+          this.form,
+          process.env.VUE_APP_EMAILJS_PUBLIC_KEY
+        )
+        .then((response) => {
+          console.log("SUCCESS!", response.status, response.text);
+        })
+        .catch((error) => {
+          console.error("FAILED...", error);
+        });
 
       // Reset form
       this.form = {
