@@ -6,7 +6,8 @@
           <span class="logo-text">DEV</span>
         </div>
         <p class="footer-text">
-          &copy; {{ new Date().getFullYear() }} John Doe. All rights reserved.
+          &copy; {{ new Date().getFullYear() }} Managed and developed by
+          <a href="https://github.com/mannanKhan-05">Abdul Mannan</a>
         </p>
         <div class="footer-links">
           <a
@@ -76,6 +77,7 @@ export default {
 
 .footer-link {
   color: var(--text-color);
+  text-decoration: none;
 }
 
 .footer-link:hover {

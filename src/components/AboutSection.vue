@@ -46,20 +46,24 @@
             </div>
           </div>
           <div class="social-links">
-            <a href="#" class="social-link" aria-label="GitHub">
+            <a
+              href="https://github.com/mannankhan-05/"
+              class="social-link"
+              aria-label="GitHub"
+            >
               <i class="fab fa-github"></i>
             </a>
-            <a href="#" class="social-link" aria-label="LinkedIn">
+            <a
+              href="https://www.linkedin.com/in/amannankhan/"
+              class="social-link"
+              aria-label="LinkedIn"
+            >
               <i class="fab fa-linkedin"></i>
             </a>
-            <a href="#" class="social-link" aria-label="Twitter">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="social-link" aria-label="Medium">
-              <i class="fab fa-medium"></i>
-            </a>
           </div>
-          <a href="#" class="btn btn-primary">Download Resume</a>
+          <a href="/resume.pdf" download class="btn btn-primary"
+            >Download Resume</a
+          >
         </div>
       </div>
     </div>

@@ -2,16 +2,6 @@
   <section class="section" id="projects">
     <div class="container">
       <h2 class="section-title">My Projects</h2>
-      <div class="projects-filter">
-        <button
-          v-for="filter in projectFilters"
-          :key="filter"
-          @click="setProjectFilter(filter)"
-          :class="['filter-btn', currentFilter === filter ? 'active' : '']"
-        >
-          {{ filter }}
-        </button>
-      </div>
       <div class="projects-grid">
         <div
           v-for="project in filteredProjects"
@@ -19,10 +9,34 @@
           class="project-card"
         >
           <div class="project-image">
-            <div
-              class="placeholder-image"
-              :style="{ backgroundColor: project.color }"
-            ></div>
+            <div class="carousel-container">
+              <transition-group name="fade" tag="div" class="carousel">
+                <div
+                  v-for="(image, index) in project.images"
+                  :key="index"
+                  v-show="project.currentImageIndex === index"
+                  class="carousel-image"
+                  :style="{ backgroundColor: image.color }"
+                >
+                  <img
+                    v-if="image.url"
+                    :src="image.url"
+                    :alt="`${project.title} image ${index + 1}`"
+                  />
+                </div>
+              </transition-group>
+              <div class="carousel-indicators">
+                <span
+                  v-for="(image, index) in project.images"
+                  :key="index"
+                  :class="[
+                    'indicator',
+                    project.currentImageIndex === index ? 'active' : '',
+                  ]"
+                  @click="setProjectImage(project, index)"
+                ></span>
+              </div>
+            </div>
           </div>
           <div class="project-content">
             <h3 class="project-title">{{ project.title }}</h3>
@@ -44,13 +58,13 @@
               >
                 <i class="fab fa-github"></i>
               </a>
-              <a
+              <!-- <a
                 :href="project.demo"
                 class="project-link"
                 aria-label="View live demo"
               >
                 <i class="fas fa-external-link-alt"></i>
-              </a>
+              </a> -->
             </div>
           </div>
         </div>
@@ -66,28 +80,43 @@ export default {
     return {
       currentFilter: "All",
       projectFilters: ["All", "Web", "Mobile", "Backend", "UI/UX"],
+      carouselIntervals: {},
       projects: [
         {
           id: 1,
-          title: "E-Commerce Platform",
+          title: "NexCart",
           description:
-            "A full-featured e-commerce platform with product management, cart functionality, and payment processing.",
-          technologies: ["React", "Node.js", "MongoDB", "Express"],
+            "A full-featured e-commerce platform with product management, cart functionality, and admin dashboard.",
+          technologies: ["Vue.js", "Node.js", "Postgresql", "Express"],
           category: "Web",
           github: "#",
           demo: "#",
-          color: "#3498db",
+          currentImageIndex: 0,
+          images: [
+            { color: "#3498db", url: "" },
+            { color: "#2980b9", url: "" },
+            { color: "#1f6aa5", url: "" },
+            { color: "#154e7c", url: "" },
+            { color: "#0c3c5f", url: "" },
+          ],
         },
         {
           id: 2,
-          title: "Task Management App",
+          title: "Thinkadoo",
           description:
-            "A mobile application for managing tasks, setting reminders, and tracking productivity.",
-          technologies: ["React Native", "Firebase", "Redux"],
+            "A platform to sell e-books with user authentication, cart functionality, and payment integration.",
+          technologies: ["Vue.js", "Node.js", "Postgresql", "Express"],
           category: "Mobile",
           github: "#",
           demo: "#",
-          color: "#e74c3c",
+          currentImageIndex: 0,
+          images: [
+            { color: "#e74c3c", url: "" },
+            { color: "#c0392b", url: "" },
+            { color: "#a33025", url: "" },
+            { color: "#7d251c", url: "" },
+            { color: "#5e1c15", url: "" },
+          ],
         },
         {
           id: 3,
@@ -98,7 +127,14 @@ export default {
           category: "Backend",
           github: "#",
           demo: "#",
-          color: "#2ecc71",
+          currentImageIndex: 0,
+          images: [
+            { color: "#2ecc71", url: "" },
+            { color: "#27ae60", url: "" },
+            { color: "#219150", url: "" },
+            { color: "#1a7440", url: "" },
+            { color: "#145830", url: "" },
+          ],
         },
         {
           id: 4,
@@ -109,7 +145,14 @@ export default {
           category: "UI/UX",
           github: "#",
           demo: "#",
-          color: "#9b59b6",
+          currentImageIndex: 0,
+          images: [
+            { color: "#9b59b6", url: "" },
+            { color: "#8e44ad", url: "" },
+            { color: "#703688", url: "" },
+            { color: "#5b2d70", url: "" },
+            { color: "#462354", url: "" },
+          ],
         },
         {
           id: 5,
@@ -120,7 +163,14 @@ export default {
           category: "Web",
           github: "#",
           demo: "#",
-          color: "#f39c12",
+          currentImageIndex: 0,
+          images: [
+            { color: "#f39c12", url: "" },
+            { color: "#d35400", url: "" },
+            { color: "#a04000", url: "" },
+            { color: "#7d3100", url: "" },
+            { color: "#5a2300", url: "" },
+          ],
         },
         {
           id: 6,
@@ -131,7 +181,14 @@ export default {
           category: "Web",
           github: "#",
           demo: "#",
-          color: "#1abc9c",
+          currentImageIndex: 0,
+          images: [
+            { color: "#1abc9c", url: "" },
+            { color: "#16a085", url: "" },
+            { color: "#12826a", url: "" },
+            { color: "#0e6453", url: "" },
+            { color: "#0a463c", url: "" },
+          ],
         },
       ],
     };
@@ -150,6 +207,32 @@ export default {
     setProjectFilter(filter) {
       this.currentFilter = filter;
     },
+    setProjectImage(project, index) {
+      project.currentImageIndex = index;
+    },
+    nextImage(project) {
+      project.currentImageIndex =
+        (project.currentImageIndex + 1) % project.images.length;
+    },
+    startCarousels() {
+      this.projects.forEach((project) => {
+        this.carouselIntervals[project.id] = setInterval(() => {
+          this.nextImage(project);
+        }, 3000); // Change image every 3 seconds
+      });
+    },
+    stopCarousels() {
+      Object.values(this.carouselIntervals).forEach((interval) => {
+        clearInterval(interval);
+      });
+      this.carouselIntervals = {};
+    },
+  },
+  mounted() {
+    this.startCarousels();
+  },
+  beforeUnmount() {
+    this.stopCarousels();
   },
 };
 </script>
@@ -230,12 +313,70 @@ export default {
   height: 200px;
 }
 
-.placeholder-image {
+.carousel-container {
+  position: relative;
   width: 100%;
   height: 100%;
-  background-color: #e0e0e0;
-  border-radius: 0;
-  border: none;
+  overflow: hidden;
+}
+
+.carousel {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background-color: white;
+  transform: scale(1.2);
+}
+
+/* Transition animations */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
 .project-content {
@@ -276,7 +417,7 @@ export default {
 }
 
 .project-link {
-  font-size: 1.2rem;
+  font-size: 2rem;
   color: var(--text-color);
 }
 

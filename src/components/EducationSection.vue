@@ -1,7 +1,7 @@
 <template>
   <section class="section" id="education">
     <div class="container">
-      <h2 class="section-title">Education & Experience</h2>
+      <h2 class="section-title">Education</h2>
       <div class="timeline">
         <div
           class="timeline-item"
@@ -28,32 +28,25 @@ export default {
     return {
       timeline: [
         {
-          period: "2020 - Present",
-          title: "Senior Full Stack Developer",
-          organization: "Tech Innovations Inc.",
+          period: "2022 - 2026",
+          title: "Bachelor of Science in Computer Science",
+          organization: "University of Karachi",
           description:
-            "Leading development of enterprise web applications, mentoring junior developers, and implementing CI/CD pipelines.",
+            "Currently pursuing a degree in Computer Science, focusing on software development and data science.",
+        },
+        {
+          period: "2020 - 2022",
+          title: "Intermediate in Computer Science",
+          organization: "National College",
+          description:
+            "Completed my intermediate education with a focus on computer science and mathematics.",
         },
         {
           period: "2018 - 2020",
-          title: "Full Stack Developer",
-          organization: "Digital Solutions LLC",
+          title: "Matriculation in Science",
+          organization: "Karachi Board",
           description:
-            "Developed and maintained multiple client projects using React, Node.js, and MongoDB. Implemented responsive designs and RESTful APIs.",
-        },
-        {
-          period: "2016 - 2018",
-          title: "Frontend Developer",
-          organization: "WebCraft Studios",
-          description:
-            "Created responsive user interfaces, collaborated with designers, and optimized website performance.",
-        },
-        {
-          period: "2014 - 2016",
-          title: "Bachelor of Science in Computer Science",
-          organization: "University of Technology",
-          description:
-            "Graduated with honors. Specialized in web technologies and software engineering.",
+            "Completed my matriculation with a strong foundation in science subjects.",
         },
       ],
     };
