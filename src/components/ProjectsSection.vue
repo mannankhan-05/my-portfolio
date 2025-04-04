@@ -58,13 +58,6 @@
               >
                 <i class="fab fa-github"></i>
               </a>
-              <!-- <a
-                :href="project.demo"
-                class="project-link"
-                aria-label="View live demo"
-              >
-                <i class="fas fa-external-link-alt"></i>
-              </a> -->
             </div>
           </div>
         </div>
@@ -93,11 +86,11 @@ export default {
           demo: "#",
           currentImageIndex: 0,
           images: [
-            { color: "#3498db", url: "" },
-            { color: "#2980b9", url: "" },
-            { color: "#1f6aa5", url: "" },
-            { color: "#154e7c", url: "" },
-            { color: "#0c3c5f", url: "" },
+            { color: "#3498db", url: require("../assets/a1.png") },
+            { color: "#2980b9", url: require("../assets/a2.png") },
+            { color: "#1f6aa5", url: require("../assets/a3.png") },
+            { color: "#154e7c", url: require("../assets/a4.png") },
+            { color: "#0c3c5f", url: require("../assets/a5.png") },
           ],
         },
         {
@@ -111,18 +104,18 @@ export default {
           demo: "#",
           currentImageIndex: 0,
           images: [
-            { color: "#e74c3c", url: "" },
-            { color: "#c0392b", url: "" },
-            { color: "#a33025", url: "" },
-            { color: "#7d251c", url: "" },
-            { color: "#5e1c15", url: "" },
+            { color: "#e74c3c", url: require("../assets/b1.png") },
+            { color: "#c0392b", url: require("../assets/b2.png") },
+            { color: "#a93226", url: require("../assets/b3.png") },
+            { color: "#922b21", url: require("../assets/b4.png") },
+            { color: "#7d3c98", url: require("../assets/b5.png") },
           ],
         },
         {
           id: 3,
-          title: "API Gateway Service",
+          title: "Blog Application",
           description:
-            "A microservice architecture API gateway that handles routing, authentication, and rate limiting.",
+            "A blogging platform with user authentication, post creation, and commenting features.",
           technologies: ["Node.js", "Express", "Docker", "Kubernetes"],
           category: "Backend",
           github: "#",
@@ -152,42 +145,6 @@ export default {
             { color: "#703688", url: "" },
             { color: "#5b2d70", url: "" },
             { color: "#462354", url: "" },
-          ],
-        },
-        {
-          id: 5,
-          title: "Real-time Chat Application",
-          description:
-            "A real-time messaging platform with private and group chat functionality.",
-          technologies: ["Socket.io", "React", "Node.js", "MongoDB"],
-          category: "Web",
-          github: "#",
-          demo: "#",
-          currentImageIndex: 0,
-          images: [
-            { color: "#f39c12", url: "" },
-            { color: "#d35400", url: "" },
-            { color: "#a04000", url: "" },
-            { color: "#7d3100", url: "" },
-            { color: "#5a2300", url: "" },
-          ],
-        },
-        {
-          id: 6,
-          title: "Data Visualization Dashboard",
-          description:
-            "An interactive dashboard for visualizing complex datasets with filtering capabilities.",
-          technologies: ["D3.js", "Vue.js", "Express", "PostgreSQL"],
-          category: "Web",
-          github: "#",
-          demo: "#",
-          currentImageIndex: 0,
-          images: [
-            { color: "#1abc9c", url: "" },
-            { color: "#16a085", url: "" },
-            { color: "#12826a", url: "" },
-            { color: "#0e6453", url: "" },
-            { color: "#0a463c", url: "" },
           ],
         },
       ],
@@ -291,7 +248,7 @@ export default {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 30px;
 }
 
