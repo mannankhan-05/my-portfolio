@@ -82,7 +82,7 @@ export default {
             "A full-featured e-commerce platform with product management, cart functionality, and admin dashboard.",
           technologies: ["Vue.js", "Node.js", "Postgresql", "Express"],
           category: "Web",
-          github: "#",
+          github: "https://github.com/mannankhan-05/online-store",
           demo: "#",
           currentImageIndex: 0,
           images: [
@@ -100,7 +100,7 @@ export default {
             "A platform to sell e-books with user authentication, cart functionality, and payment integration.",
           technologies: ["Vue.js", "Node.js", "Postgresql", "Express"],
           category: "Mobile",
-          github: "#",
+          github: "https://github.com/mannankhan-05/thinkadoo",
           demo: "#",
           currentImageIndex: 0,
           images: [
@@ -116,35 +116,17 @@ export default {
           title: "Blog Application",
           description:
             "A blogging platform with user authentication, post creation, and commenting features.",
-          technologies: ["Node.js", "Express", "Docker", "Kubernetes"],
+          technologies: ["Vue.js", "Node.js", "Postgresql", "Express"],
           category: "Backend",
-          github: "#",
+          github: "https://github.com/mannankhan-05/blogapp-fullstack",
           demo: "#",
           currentImageIndex: 0,
           images: [
-            { color: "#2ecc71", url: "" },
-            { color: "#27ae60", url: "" },
-            { color: "#219150", url: "" },
-            { color: "#1a7440", url: "" },
-            { color: "#145830", url: "" },
-          ],
-        },
-        {
-          id: 4,
-          title: "Portfolio Website",
-          description:
-            "A responsive portfolio website with modern design principles and animations.",
-          technologies: ["Vue.js", "SCSS", "GSAP"],
-          category: "UI/UX",
-          github: "#",
-          demo: "#",
-          currentImageIndex: 0,
-          images: [
-            { color: "#9b59b6", url: "" },
-            { color: "#8e44ad", url: "" },
-            { color: "#703688", url: "" },
-            { color: "#5b2d70", url: "" },
-            { color: "#462354", url: "" },
+            { color: "#2ecc71", url: require("../assets/c1.png") },
+            { color: "#27ae60", url: require("../assets/c2.png") },
+            { color: "#1e8449", url: require("../assets/c3.png") },
+            { color: "#145a32", url: require("../assets/c4.png") },
+            { color: "#0e6655", url: require("../assets/c5.png") },
           ],
         },
       ],
@@ -248,7 +230,7 @@ export default {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 30px;
 }
 
